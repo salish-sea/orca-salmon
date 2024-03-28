@@ -44,6 +44,7 @@ except:
 today=date.today()
 todaystr=str(today)
 curyr=today.year
+#curyr=2023
 lastyr=curyr-1
 twoyr=curyr-2
 ayl=[y for y in range(1980, curyr+1)] #year list for Albion
@@ -753,10 +754,11 @@ app.layout = html.Div(
                                                 children=[
                                                     html.H6("Southern Resident Orca Sightings"),
                                                     dcc.Dropdown(
-                                                            value=2023,
+                                                            value=2024,
                                                             className="year-dropdown",
                                                             id="year-dropdown",
                                                             options=[
+                                                                {"label":"2024","value":2024,},
                                                                 {"label":"2023","value":2023,},
                                                                 {"label":"2022","value":2022,},
                                                                 {"label":"2021","value":2021,},
@@ -1281,6 +1283,16 @@ def update_orca_map(pod,year):
         srkw_dat=pd.concat([srkw_dat0, srkw_dat1])
     else:
         srkw_dat=srkw_twm_map(year, pod)
+    if year==curyr:
+        # create an empty dataset with all months of the year
+        empty_srkw_dat=pd.DataFrame()
+        empty_srkw_dat['m']=list(range(1,13))
+        empty_srkw_dat['year']=curyr
+        empty_srkw_dat['mon_frac']=empty_srkw_dat['m'].apply(lambda x: viri12pt[int(x)-1])
+        # find the current months
+        max_m=max(srkw_dat.m)
+        append_dat=empty_srkw_dat[empty_srkw_dat['m']>max_m]
+        srkw_dat=pd.concat([srkw_dat, append_dat])
     fig_orcamap = go.Figure()
     fig_orcamap.add_trace(go.Scattermapbox(
             lat=srkw_dat['latitude'],
