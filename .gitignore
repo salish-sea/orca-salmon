@@ -19,6 +19,7 @@ srkwplot.py
 Scraper.ipynb
 twm_viz.ipynb
 acartia_twm_viz.ipynb
+scraper_local.py
 # Notes
 salmon_dashboard_notes.md
 
@@ -27,6 +28,11 @@ orcasalmon_venv
 
 # Workspace
 orcasalmon.code-workspace
+
+# Documentations
+orcasalmon_nobuild.yml
+orcasalmon_hist.yml 
+/documentation_for_orcasound
 
 #Other
 app_3tabs.py
