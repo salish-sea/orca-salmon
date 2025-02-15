@@ -8,7 +8,7 @@ from time import sleep
 import pandas as pd
 pd.options.mode.chained_assignment = None  # suppress chained assignment
 
-def scrap_fos(yrs, spe="CHINOOK SALMON", fos_path="./data/foschinook/"):
+def scrape_fos(yrs, spe="CHINOOK SALMON", fos_path="./data/foschinook/"):
     # Set up chrome driver
     options = webdriver.ChromeOptions()
     options.add_argument("--headless")
@@ -53,7 +53,7 @@ def scrap_fos(yrs, spe="CHINOOK SALMON", fos_path="./data/foschinook/"):
     dat.to_csv(fos_path + "fos" + yrs + ".csv", index=False)
 
 
-def scrap_bon(yrs, bon_path="./data/bonchinook/"):
+def scrape_bon(yrs, bon_path="./data/bonchinook/"):
     if os.path.exists(bon_path) == False:
         os.makedirs(bon_path)
     base_path = os.path.abspath("")
