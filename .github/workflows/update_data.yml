@@ -11,12 +11,12 @@ jobs:
     
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           token: ${{ secrets.GH_TOKEN }}
         
       - name: Setup Python 
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.12'
           cache: 'pip'
@@ -33,6 +33,6 @@ jobs:
         run: | 
           git config --local user.email "zoelzh@gmail.com"
           git config --local user.name "Zoe Liu"
-          git add ./data/acartia/srkw_2024.csv ./data/foschinook/fos2024.csv ./data/bonchinook/bon2024.csv
+          git add ./data/acartia/srkw_2025.csv ./data/foschinook/fos2025.csv ./data/bonchinook/bon2025.csv
           git commit -m "Updated data with GitHub Actions"
           git push origin main
