@@ -7,7 +7,6 @@ import os
 from os.path import join as pjoin
 import pathlib
 from datetime import date
-
 import pandas as pd
 pd.options.mode.chained_assignment = None #suppress chained assignment 
 
@@ -50,7 +49,7 @@ lakewash_path=pjoin(APP_PATH,'data/lakewash/')
 acartia_path=pjoin(APP_PATH, 'data/acartia/')
 twm_path=pjoin(APP_PATH, 'data/twm/')
 srkw_path=pjoin(APP_PATH, 'data/')
-
+  
 #Load Bonneville data
 bonnev=load_bon(bon_path)
 
